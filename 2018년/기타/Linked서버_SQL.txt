@@ -1,0 +1,16 @@
+
+
+update Election2018.dbo.Ele_TPrec set precname = rtrim(precname);
+
+
+update a
+set a.career1 = RTRIM(b.Career1)
+    ,a.career2 = RTRIM(b.Career2)
+    ,a.career3 = RTRIM(b.Career3)
+    ,a.career4 = RTRIM(b.Career4)
+from ntek.election2018.dbo.ele_tcand a, Ele_TCand b
+where a.eleccatgr = b.ElecCatgr
+and   a.precid = b.PrecID
+and   a.ordno = b.OrdNo
+and   (a.precid like '26%' or a.precid like '48%');
+
